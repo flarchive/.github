@@ -1,80 +1,42 @@
-# Extension Archive for Flarum
+# Flarchive
+### Extension Archive for Flarum
 
 A permanent, read-only archive of released versions of community extensions
-for Flarum, so that they are not lost when an author deletes a repository,
+for Flarum, so they are not lost when an author deletes a repository,
 rewrites a tag, or abandons a package.
 
 > **Not affiliated with the Flarum Foundation or the Flarum project.**
 > This is an independent community project. Archived code is third-party,
-> unreviewed, and provided as is. Read [DISCLAIMER.md](DISCLAIMER.md) before
-> using anything from the archive.
+> unreviewed, and provided as is.
 
-## How it works
+## What you will find here
 
-1. New releases of `flarum-extension` packages are discovered through the
-   Packagist metadata API.
-2. If the tagged version declares an OSI-approved license, its source is
-   forked and tagged as `archive/vX.Y.Z`. Otherwise only metadata is
-   recorded and **no code is copied**.
-3. Every version is recorded in the manifest in this repository.
-4. Archived tags are protected: they are never modified or deleted by the
-   archive (the only exception is a takedown, see [POLICY.md](POLICY.md)).
+- Repositories named after archived extensions. Each contains tags named
+  `archive/vX.Y.Z`, one per archived release. Tags are never modified or
+  deleted by the archive, except through a takedown.
+- Only extensions whose tagged version declares an OSI-approved license are
+  copied. For all others, only metadata is recorded.
 
-Only released, tagged versions are archived. Development versions are not.
+## What this is not
 
-## What this archive is not
+- Not a package source. Nothing is published on Packagist or any other index
+  from here.
+- No maintenance, support, or endorsement of archived extensions. Issues and
+  pull requests are disabled.
 
-- It is **not a package source**. Nothing is published on Packagist or any
-  other index from here.
-- It does **not** maintain, support, or endorse archived extensions.
-- It does not guarantee completeness.
+## Start here
 
-If an upstream extension disappears and you want to continue it, you may fork
-the archived repository into your own account and publish it yourself under
-the terms of its license. You are then the publisher and are solely
-responsible for it.
-
-## Repository layout
-
-| Path | Content |
+| | |
 |---|---|
-| `POLICY.md` | Scope, license gate, immutability, takedown and exclusion rules |
-| `DISCLAIMER.md` | Disclaimers and limitation of liability |
-| `EXCLUSIONS.md` | Packages excluded from archiving |
-| `packages/{vendor}__{package}.json` | Append-only manifest, one file per package |
+| [archive-index](https://github.com/flarchive/archive-index) | Manifest of all archived versions |
+| [POLICY.md](https://github.com/flarchive/archive-index/blob/main/POLICY.md) | Scope, license rules, takedowns, exclusions |
+| [DISCLAIMER.md](https://github.com/flarchive/archive-index/blob/main/DISCLAIMER.md) | Disclaimers and limitation of liability |
+| [EXCLUSIONS.md](https://github.com/flarchive/archive-index/blob/main/EXCLUSIONS.md) | Packages excluded from archiving |
 
-## Manifest format
+## Reports and takedowns
 
-```json
-{
-  "package": "vendor/package",
-  "upstream": "https://github.com/vendor/package",
-  "versions": [
-    {
-      "version": "1.2.0",
-      "tag": "archive/v1.2.0",
-      "commit": "0123456789abcdef0123456789abcdef01234567",
-      "released": "2026-01-15",
-      "archived": "2026-10-03",
-      "license": "MIT",
-      "source": "archived",
-      "status": "ok"
-    }
-  ]
-}
-```
-
-- `source`: `archived` (source copied) or `metadata-only` (license did not
-  allow copying).
-- `status`: `ok`, `diverged` (upstream tag now points elsewhere), `flagged`,
-  or `removed` (takedown; only a general reason category is kept).
-
-Entries are only ever appended.
-
-## Reports, takedowns, and exclusions
-
-If something here infringes your rights, contains malicious code, or exposes
-personal data, or if you are a package owner who wants to be excluded from
-future archiving, follow [POLICY.md](POLICY.md).
+Copyright or license concerns, malicious code, personal data, or an
+owner-requested exclusion: follow
+[POLICY.md](https://github.com/flarchive/archive-index/blob/main/POLICY.md).
 
 Contact: `mysuperuser01@gmail.com`
