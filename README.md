@@ -77,4 +77,4 @@ If something here infringes your rights, contains malicious code, or exposes
 personal data, or if you are a package owner who wants to be excluded from
 future archiving, follow [POLICY.md](POLICY.md).
 
-Contact: `<CONTACT_EMAIL>`
+Contact: `mysuperuser01@gmail.com`
